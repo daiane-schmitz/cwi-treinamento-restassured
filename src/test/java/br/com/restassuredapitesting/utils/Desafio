@@ -1,0 +1,64 @@
+>Descrição do desafio<
+
+uite Healthcheck:
+
+/HEALTHCHECK
+
+Verificar se API está online (OK)
+
+Suite Contract :
+
+/GET
+
+Garantir o contrato do retorno da lista de reservas (OK)
+Garantir o contrato do retorno de uma reserva específica (OK)
+
+Suite Acceptance:
+
+/DELETE
+
+Excluir um reserva com sucesso (OK)
+
+/GET
+
+Listar IDs das reservas (OK)
+Listar uma reserva específica (OK)
+Listar IDs de reservas utilizando o filtro firstname
+Listar IDs de reservas utilizando o filtro lastname
+Listar IDs de reservas utilizando o filtro checkin
+Listar IDs de reservas utilizando o filtro checkout
+Listar IDs de reservas utilizando o filtro checkout and checkout
+Listar IDs de reservas utilizando o filtro name, checkin and checkout date
+
+/POST
+
+Criar uma nova reserva
+
+/PUT
+
+Alterar uma reserva usando o token  (OK)
+Alterar uma reserva usando o Basic auth
+
+Suite E2e :
+
+/DELETE
+
+Tentar excluir um reserva que não existe
+Tentar excluir uma reserva sem autorização
+
+/GET
+
+Visualizar erro de servidor 500 quando enviar filtro mal formatado
+
+/POST
+
+Validar retorno 500 quando o payload da reserva estiver inválido
+Validar a criação de mais de um livro em sequencia
+Criar uma reserva enviando mais parâmetros no payload da reserva
+Validar retorno 418 quando o header Accept for invalido
+
+/PUT
+
+Tentar alterar uma reserva quando o token não for enviado
+Tentar alterar uma reserva quando o token enviado for inválido
+Tentar alterar uma reserva que não existe

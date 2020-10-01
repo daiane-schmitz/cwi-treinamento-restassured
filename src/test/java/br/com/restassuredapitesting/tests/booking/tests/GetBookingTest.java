@@ -28,7 +28,7 @@ public class GetBookingTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Category(Acceptance.class)
     @DisplayName("Listar IDs das Reservas")
-    public void validarIDsDasReservas() throws Exception{
+    public void listarIDsDasReservas() throws Exception{
         getBookingRequest.allBookings().then()
                 .statusCode(200)
                 .time(lessThan(4L), TimeUnit.SECONDS)
@@ -45,5 +45,34 @@ public class GetBookingTest extends BaseTest {
                 .assertThat()
                 .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
     }
+
+    @Test
+    @Severity(SeverityLevel.BLOCKER)
+    @Category(Contract.class)
+    @DisplayName("Garantir o contrato do retorno de uma reserva específica")
+    public void garantirContratoReservaEspecifica() throws Exception{
+        int id = getBookingRequest.allBookings().then().statusCode(200).extract().path("[2].bookingid");
+
+        getBookingRequest.bookingByID(id).then()
+                .statusCode(200)
+                .time(lessThan(4L), TimeUnit.SECONDS)
+                .assertThat()
+                .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "booking"))));
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category(Acceptance.class)
+    @DisplayName("Listar uma reserva específica")
+    public void listarReservaEspecifica() throws Exception{
+        int id = getBookingRequest.allBookings().then().statusCode(200).extract().path("[0].bookingid");
+
+        getBookingRequest.bookingByID(id).then()
+                .statusCode(200)
+                .assertThat()
+                .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "booking"))));
+    }
+
+
 
 }

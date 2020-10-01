@@ -15,4 +15,12 @@ public class GetBookingRequest {
                 .get("booking");
     }
 
+    @Step("Buscar reserva específica por id")
+    public Response bookingByID(int id){
+        return given()
+                .header("Content-Type", "application/json")
+                .when()
+                .get("booking/" + id);
+    }
+
 }

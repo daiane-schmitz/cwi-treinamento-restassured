@@ -11,7 +11,6 @@ public class Utils {
          bookingDates.put("checkin", "2018-01-01");
          bookingDates.put("checkout", "2019-01-01");
 
-
          payload.put("firstname","Ronaldo");
          payload.put("lastname", "Fenomeno");
          payload.put("totalprice", 111);

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: br.com.restassuredapitesting.runners.Healthcheck
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.103 s - in br.com.restassuredapitesting.runners.Healthcheck
