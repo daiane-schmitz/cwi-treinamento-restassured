@@ -16,7 +16,8 @@ public class DeleteBookingRequest {
                 .header("Content-Type", "application/json")
                 .header("Cookie", postAuthRequest.getToken())
                 .when()
-                .delete("booking/" + id);
+                .delete("booking/" + id)
+                .prettyPeek();
 
 
     }

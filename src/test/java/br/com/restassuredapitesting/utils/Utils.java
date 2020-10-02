@@ -18,6 +18,7 @@ public class Utils {
          payload.put("bookingdates", bookingDates);
          payload.put("additionalneeds", "Breakfast");
 
+
          return payload;
     }
 
@@ -30,4 +31,7 @@ public class Utils {
                 + contract
                 + ".json";
     }
+
+
+
 }

@@ -1,6 +1,6 @@
 >Descrição do desafio<
 
-uite Healthcheck:
+Suite Healthcheck:
 
 /HEALTHCHECK
 
@@ -23,16 +23,16 @@ Excluir um reserva com sucesso (OK)
 
 Listar IDs das reservas (OK)
 Listar uma reserva específica (OK)
-Listar IDs de reservas utilizando o filtro firstname
-Listar IDs de reservas utilizando o filtro lastname
-Listar IDs de reservas utilizando o filtro checkin
-Listar IDs de reservas utilizando o filtro checkout
-Listar IDs de reservas utilizando o filtro checkout and checkout
-Listar IDs de reservas utilizando o filtro name, checkin and checkout date
+Listar IDs de reservas utilizando o filtro firstname (OK)
+Listar IDs de reservas utilizando o filtro lastname (OK)
+Listar IDs de reservas utilizando o filtro checkin (OK)
+Listar IDs de reservas utilizando o filtro checkout (OK)
+Listar IDs de reservas utilizando o filtro checkout and checkout (OK)
+Listar IDs de reservas utilizando o filtro name, checkin and checkout date (OK)----------
 
 /POST
 
-Criar uma nova reserva
+Criar uma nova reserva (OK)
 
 /PUT
 

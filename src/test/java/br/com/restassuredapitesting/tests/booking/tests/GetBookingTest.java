@@ -39,7 +39,7 @@ public class GetBookingTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     @Category(Contract.class)
     @DisplayName("Garantir o contrato de retorno da lista de reservas")
-    public void garantirContratoListaReserva() throws Exception{
+    public void garantirContratoListaReservas() throws Exception{
         getBookingRequest.allBookings().then()
                 .statusCode(200)
                 .assertThat()
@@ -64,7 +64,7 @@ public class GetBookingTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Category(Acceptance.class)
     @DisplayName("Listar uma reserva específica")
-    public void listarReservaEspecifica() throws Exception{
+    public void listarReservasPorID() throws Exception{
         int id = getBookingRequest.allBookings().then().statusCode(200).extract().path("[0].bookingid");
 
         getBookingRequest.bookingByID(id).then()
@@ -73,6 +73,71 @@ public class GetBookingTest extends BaseTest {
                 .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "booking"))));
     }
 
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category(Acceptance.class)
+    @DisplayName("Listar IDs de reservas utilizando o filtro firstname")
+    public void listarReservasPorFirstname() throws Exception{
+        getBookingRequest.bookingByFirstname().then()
+                .statusCode(200)
+                .assertThat()
+                .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
+        }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category(Acceptance.class)
+    @DisplayName("Listar IDs de reservas utilizando o filtro lastname")
+    public void listarReservasPorLastname() throws Exception{
+        getBookingRequest.bookingByLastname().then()
+                .statusCode(200)
+                .assertThat()
+                .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category(Acceptance.class)
+    @DisplayName("Listar IDs de reservas utilizando o filtro checkin")
+    public void listarReservasPorChekin() throws Exception{
+        getBookingRequest.bookingByCheckin().then()
+                .statusCode(200)
+                .assertThat()
+                .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category(Acceptance.class)
+    @DisplayName("Listar IDs de reservas utilizando o filtro checkout")
+    public void listarReservasPorChekout() throws Exception{
+        getBookingRequest.bookingByCheckout().then()
+                .statusCode(200)
+                .assertThat()
+                .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category(Acceptance.class)
+    @DisplayName("Listar IDs de reservas utilizando o filtros checkin e checkout")
+    public void listarReservasPorCheckinEChekout() throws Exception{
+        getBookingRequest.bookingCheckinCheckout().then()
+                .statusCode(200)
+                .assertThat()
+                .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category(Acceptance.class)
+    @DisplayName("Listar IDs de reservas utilizando o filtros name, checkin e checkout")
+    public void listarReservasPorNameCheckinEChekout() throws Exception{
+        getBookingRequest.bookingNameCheckinCheckout().then()
+                .statusCode(200)
+                .assertThat()
+                .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
+    }
 
 
 }
