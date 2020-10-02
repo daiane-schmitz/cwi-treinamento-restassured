@@ -43,8 +43,8 @@ Suite E2e :
 
 /DELETE
 
-Tentar excluir um reserva que não existe
-Tentar excluir uma reserva sem autorização
+Tentar excluir um reserva que não existe (OK)
+Tentar excluir uma reserva sem autorização (OK)
 
 /GET
 

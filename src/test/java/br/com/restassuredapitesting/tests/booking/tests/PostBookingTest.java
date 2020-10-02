@@ -11,8 +11,10 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
+import static org.hamcrest.Matchers.lessThan;
 
 public class PostBookingTest extends BaseTest {
 
@@ -25,6 +27,7 @@ public class PostBookingTest extends BaseTest {
     public void criarUmaNovaReserva() throws Exception{
         postBookingRequest.postBooking(Utils.validPayloadBooking()).then()
                 .statusCode(200)
+                .time(lessThan(4L), TimeUnit.SECONDS)
                 .assertThat()
                 .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "postbooking"))));
 

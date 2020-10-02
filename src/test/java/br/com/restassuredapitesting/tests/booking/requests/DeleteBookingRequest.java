@@ -10,16 +10,24 @@ public class DeleteBookingRequest {
 
     PostAuthRequest postAuthRequest = new PostAuthRequest();
 
-    @Step("Excluir um reserva com sucesso")
+    @Step("Excluir um reserva")
     public Response excluirReserva(int id) {
         return given()
                 .header("Content-Type", "application/json")
+                .header("Accept", "application/json")
                 .header("Cookie", postAuthRequest.getToken())
                 .when()
                 .delete("booking/" + id)
                 .prettyPeek();
-
-
     }
 
+    @Step("Excluir um reserva sem autorização")
+    public Response excluirReservaSemAutorizacao(int id) {
+        return given()
+                .header("Content-Type", "application/json")
+                .header("Accept", "application/json")
+                .when()
+                .delete("booking/" + id)
+                .prettyPeek();
+    }
 }

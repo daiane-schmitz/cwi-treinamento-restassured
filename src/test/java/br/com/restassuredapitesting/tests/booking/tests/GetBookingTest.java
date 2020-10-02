@@ -42,6 +42,7 @@ public class GetBookingTest extends BaseTest {
     public void garantirContratoListaReservas() throws Exception{
         getBookingRequest.allBookings().then()
                 .statusCode(200)
+                .time(lessThan(4L), TimeUnit.SECONDS)
                 .assertThat()
                 .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
     }
@@ -69,6 +70,7 @@ public class GetBookingTest extends BaseTest {
 
         getBookingRequest.bookingByID(id).then()
                 .statusCode(200)
+                .time(lessThan(4L), TimeUnit.SECONDS)
                 .assertThat()
                 .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "booking"))));
     }
@@ -80,6 +82,7 @@ public class GetBookingTest extends BaseTest {
     public void listarReservasPorFirstname() throws Exception{
         getBookingRequest.bookingByFirstname().then()
                 .statusCode(200)
+                .time(lessThan(4L), TimeUnit.SECONDS)
                 .assertThat()
                 .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
         }
@@ -91,6 +94,7 @@ public class GetBookingTest extends BaseTest {
     public void listarReservasPorLastname() throws Exception{
         getBookingRequest.bookingByLastname().then()
                 .statusCode(200)
+                .time(lessThan(4L), TimeUnit.SECONDS)
                 .assertThat()
                 .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
     }
@@ -102,6 +106,7 @@ public class GetBookingTest extends BaseTest {
     public void listarReservasPorChekin() throws Exception{
         getBookingRequest.bookingByCheckin().then()
                 .statusCode(200)
+                .time(lessThan(4L), TimeUnit.SECONDS)
                 .assertThat()
                 .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
     }
@@ -113,6 +118,7 @@ public class GetBookingTest extends BaseTest {
     public void listarReservasPorChekout() throws Exception{
         getBookingRequest.bookingByCheckout().then()
                 .statusCode(200)
+                .time(lessThan(4L), TimeUnit.SECONDS)
                 .assertThat()
                 .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
     }
@@ -124,6 +130,7 @@ public class GetBookingTest extends BaseTest {
     public void listarReservasPorCheckinEChekout() throws Exception{
         getBookingRequest.bookingCheckinCheckout().then()
                 .statusCode(200)
+                .time(lessThan(4L), TimeUnit.SECONDS)
                 .assertThat()
                 .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
     }
@@ -135,6 +142,7 @@ public class GetBookingTest extends BaseTest {
     public void listarReservasPorNameCheckinEChekout() throws Exception{
         getBookingRequest.bookingNameCheckinCheckout().then()
                 .statusCode(200)
+                .time(lessThan(4L), TimeUnit.SECONDS)
                 .assertThat()
                 .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
     }
