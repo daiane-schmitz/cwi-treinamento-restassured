@@ -2,6 +2,7 @@ package br.com.restassuredapitesting.tests.booking.tests;
 
 import br.com.restassuredapitesting.suites.Acceptance;
 import br.com.restassuredapitesting.suites.Contract;
+import br.com.restassuredapitesting.suites.E2e;
 import br.com.restassuredapitesting.tests.base.tests.BaseTest;
 import br.com.restassuredapitesting.tests.booking.requests.GetBookingRequest;
 import br.com.restassuredapitesting.utils.Utils;
@@ -145,6 +146,16 @@ public class GetBookingTest extends BaseTest {
                 .time(lessThan(4L), TimeUnit.SECONDS)
                 .assertThat()
                 .body(matchesJsonSchema(new File(Utils.getContractsBasePath("booking", "bookings"))));
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Category(E2e.class)
+    @DisplayName("Visualizar erro de servidor 500 quando enviar filtro mal formatado")
+    public void visualizarErroPorFiltroMalFormatado() throws Exception {
+        getBookingRequest.bookingWrongFilter().then()
+                .statusCode(500)
+                .time(lessThan(4L), TimeUnit.SECONDS);
     }
 
 

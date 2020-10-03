@@ -37,7 +37,7 @@ Criar uma nova reserva (OK)
 /PUT
 
 Alterar uma reserva usando o token  (OK)
-Alterar uma reserva usando o Basic auth
+Alterar uma reserva usando o Basic auth (OK)
 
 Suite E2e :
 
@@ -48,17 +48,17 @@ Tentar excluir uma reserva sem autorização (OK)
 
 /GET
 
-Visualizar erro de servidor 500 quando enviar filtro mal formatado
+Visualizar erro de servidor 500 quando enviar filtro mal formatado (OK)
 
 /POST
 
-Validar retorno 500 quando o payload da reserva estiver inválido
-Validar a criação de mais de um livro em sequencia
-Criar uma reserva enviando mais parâmetros no payload da reserva
-Validar retorno 418 quando o header Accept for invalido
+Validar retorno 500 quando o payload da reserva estiver inválido (OK)
+Validar a criação de mais de um livro em sequencia (OK)
+Criar uma reserva enviando mais parâmetros no payload da reserva (OK) -----
+Validar retorno 418 quando o header Accept for invalido (OK)
 
 /PUT
 
-Tentar alterar uma reserva quando o token não for enviado
-Tentar alterar uma reserva quando o token enviado for inválido
-Tentar alterar uma reserva que não existe
+Tentar alterar uma reserva quando o token não for enviado (OK)
+Tentar alterar uma reserva quando o token enviado for inválido (OK)
+Tentar alterar uma reserva que não existe (OK)

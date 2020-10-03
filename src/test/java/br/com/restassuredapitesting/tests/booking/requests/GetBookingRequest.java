@@ -88,6 +88,14 @@ public class GetBookingRequest {
                 .prettyPeek();
     }
 
-
+    @Step("Visualizar erro de servidor 500 quando enviar filtro mal formatado")
+    public Response bookingWrongFilter(){
+        return given()
+                .header("Content-Type", "application/json")
+                .when()
+                .queryParam("checkout", "20-01-2019")
+                .get("booking/")
+                .prettyPeek();
+    }
 
 }

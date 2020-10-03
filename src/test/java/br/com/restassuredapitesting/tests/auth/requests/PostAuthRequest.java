@@ -25,4 +25,5 @@ public class PostAuthRequest {
     public String getToken(){
         return "token=" +this.token().then().statusCode(200).extract().path("token");
     }
+
 }

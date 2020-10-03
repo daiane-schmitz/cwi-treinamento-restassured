@@ -17,11 +17,17 @@ public class PostBookingRequest {
                 .body(payload.toString())
                 .post("booking/")
                 .prettyPeek();
+    }
 
-
-
-
-
+    @Step("Criar uma nova reserva")
+    public Response postBookingInvalidAccept(JSONObject payload){
+        return given()
+                .header("Content-Type", "application/json")
+                .header("Accept", "accept/invalido")
+                .when()
+                .body(payload.toString())
+                .post("booking/")
+                .prettyPeek();
     }
 
 }
